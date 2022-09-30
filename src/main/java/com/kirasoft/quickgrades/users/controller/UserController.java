@@ -1,5 +1,7 @@
-package com.kirasoft.quickgrades.users;
+package com.kirasoft.quickgrades.users.controller;
 
+import com.kirasoft.quickgrades.users.service.impl.UserServiceImpl;
+import com.kirasoft.quickgrades.users.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,16 +15,16 @@ import java.util.List;
 @RequestMapping("users")
 public class UserController {
 
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
 
 
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UserController(UserServiceImpl userServiceImpl) {
+        this.userServiceImpl = userServiceImpl;
     }
 
     @GetMapping(produces ="application/json")
     public List<User> getAllUsers(){
-        return userService.getAllUsers();
+        return userServiceImpl.getAllUsers();
     }
 }

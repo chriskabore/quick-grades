@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### node js
+node_modules
+build
+npm-debug.log
+.nyc
+.env
+.DS_Store
