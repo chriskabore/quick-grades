@@ -3,9 +3,16 @@ server:
   servlet:
     context-path: /api
 
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
 app:
   datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/quickgrades
-    username: postgres
-    password: password
+    jdbc-url: jdbc:mysql://localhost:3306/quickgrades?useUnicode=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: quickgradesdba
+    password: grades
+    driverClassName: com.mysql.cj.jdbc.Driver
     pool-size: 30

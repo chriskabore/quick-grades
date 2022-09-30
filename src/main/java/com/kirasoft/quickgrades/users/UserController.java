@@ -1,5 +1,6 @@
 package com.kirasoft.quickgrades.users;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,12 +13,16 @@ import java.util.List;
 @RequestMapping("users")
 public class UserController {
 
+    private UserService userService;
+
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping(produces ="application/json")
     public List<User> getAllUsers(){
-        return List.of(
-                new User(1L,"ldamiba", "Laurent", "Wendkuuni", "Damiba","secret", "ldamiba@kirasoft.com",Gender.MALE),
-                new User(2L,"hkouakou", "Hortense", "Marie","Kouakou","secret", "hkouakou@kirasoft.com",Gender.FEMALE),
-                new User(3L,"chriskabor", "Sidnooma", "Christian", "Kabore","secret", "chriskabor@kirasoft.com",Gender.MALE)
-        );
+        return userService.getAllUsers();
     }
 }
