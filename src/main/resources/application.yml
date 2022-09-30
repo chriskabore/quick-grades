@@ -1,0 +1,11 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /api
+
+app:
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:5432/quickgrades
+    username: postgres
+    password: password
+    pool-size: 30
